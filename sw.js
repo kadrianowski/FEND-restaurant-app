@@ -1,7 +1,5 @@
 const staticCache = 'restaurant-cache';
 
-// list of assets to cache on install
-// cache each restaurant detail page as well
 self.addEventListener('install', event => {
     console.log('Sw install');
     event.waitUntil(
@@ -35,12 +33,8 @@ self.addEventListener('install', event => {
     );
 });
 
-
-// intercept all requests
-// either return cached asset or fetch from network
 self.addEventListener('fetch', event => {
     event.respondWith(
-        // Add cache.put to cache images on each fetch
         caches.match(event.request).then(response => {
             return response || fetch(event.request).then(fetchResponse => {
                 return caches.open(staticCache).then(cache => {
@@ -48,19 +42,10 @@ self.addEventListener('fetch', event => {
                     return fetchResponse;
                 });
             });
-        }).catch(error => {
-            if (event.request.url.includes('.jpg')) {
-                return caches.match('/img/offline.png');
-            }
-            return new Response('Not connected to the internet', {
-                status: 404,
-                statusText: "Not connected to the internet. Check your connection"
-            });
         })
     );
 });
 
-// delete old/unused static caches
 self.addEventListener('activate', event => {
     event.waitUntil(
         caches.keys().then(cacheNames => {
