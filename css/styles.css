@@ -1,14 +1,8 @@
 @charset "utf-8";
 /* CSS Document */
+/* To do: 
 
-/* to do 
-
-- buttons
--footer sticky
-- zoom button
--rounded labels
 */
-
 body,
 td,
 th,
@@ -96,6 +90,7 @@ nav {
 
 nav h1 {
   margin: auto;
+  padding-top: 20px;
   display: inline-block;
 }
 
@@ -410,19 +405,19 @@ nav h1 a {
 
 @media screen and (min-width: 780px) {
   #restaurants-list li {
-    width: calc(33.3333% - 30px);
+    width: calc(33.3333% - -30px);
   }
 }
 
 @media screen and (min-width: 1000px) {
   #restaurants-list li {
-    width: calc(25% - 30px);
+    width: calc(25% - -31px);
   }
 }
 
 @media screen and (min-width: 1400px) {
   #restaurants-list li {
-    width: calc(20% - 30px);
+    width: calc(20% - -30px);
   }
 }
 
