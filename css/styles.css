@@ -4,7 +4,9 @@
 /* to do 
 
 - buttons
-
+-footer sticky
+- zoom button
+-rounded labels
 */
 
 body,
@@ -35,7 +37,7 @@ a {
 
 a:hover,
 a:focus {
-  color: #3397db;
+  color: orange;
   text-decoration: none;
 }
 
@@ -348,6 +350,7 @@ nav h1 a {
 #reviews-list li p:nth-child(1) {
   padding: 5px;
   background-color: #333;
+  border-top-left-radius: 10px;
   color: white;
   width: calc(100% - 140px);
 }
